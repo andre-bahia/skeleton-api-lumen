@@ -86,6 +86,9 @@ $app->singleton(
 // l5 Repository
 $app->register(Prettus\Repository\Providers\LumenRepositoryServiceProvider::class);
 
+// Dingo api 
+$app->register(Dingo\Api\Provider\LumenServiceProvider::class);
+
 // Oci8 oracle
 // $app->register(Yajra\Oci8\Oci8ServiceProvider::class);
 

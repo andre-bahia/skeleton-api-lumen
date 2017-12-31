@@ -11,8 +11,10 @@
 |
 */
 
-$router->group(['prefix' => '/api/v1/'], function () use ($router) {
-    $router->get('users', ['as' => 'users', 'uses' => 'UserController@index' ]);
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', ['namespace' => 'App\Http\Controllers\Api\V1'], function ($api) {
+    $api->get('users', ['as' => 'users.list', 'uses' => 'UserController@index']);
 });
 
 $router->get('/', function () use ($router) {
