@@ -29,6 +29,6 @@ class User extends Model implements Transformable, AuthenticatableContract, Auth
      * @var array
      */
     protected $hidden = [
-        'deleted_at', 'remember_token'
+        'password', 'deleted_at', 'remember_token'
     ];
 }

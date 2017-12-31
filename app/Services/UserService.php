@@ -51,6 +51,21 @@ class UserService extends Service
 
     public function update(Request $request, int $id)
     {
+        try {
+            $attributes = [
+                'name'   => $request->get('name'),
+                'email'  => $request->get('email'),
+                'phone'  => $request->get('phone'),
+                'active' => $request->get('active'),
+
+            ];
+            
+            $user = $this->repository->update($attributes, $id);
+            return $this->success($user->toArray());
+        
+        } catch(ValidatorException $validator) {
+            $this->errorBadRequest($validator->getMessageBag()->getMessages());
+        }
 
     }
 

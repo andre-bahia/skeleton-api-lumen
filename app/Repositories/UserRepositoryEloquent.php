@@ -20,13 +20,14 @@ class UserRepositoryEloquent extends BaseRepository implements RepositoryInterfa
      */
     protected $rules = [
         ValidatorInterface::RULE_CREATE => [
-            'name'     => 'required',
-            'email'    => 'required',
+            'name'  => 'required|min:3|max:100',
+            'email' => 'required|email|unique:users',
             'password' => 'required',
             'active'   => 'required'
         ],
         ValidatorInterface::RULE_UPDATE => [
-            'name' => 'required'
+            'name'  => 'required|min:3|max:100',
+            'email' => 'required|email|unique:users'
         ]
     ];
 

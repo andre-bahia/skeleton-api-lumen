@@ -26,6 +26,11 @@ class UserController extends BaseController
         return $this->service->store($request->all());
     }
 
+    public function update(Request $request, int $id)
+    {
+        return $this->service->update($request, $id);
+    }
+
     public function destroy(int $id)
     {
         return $this->service->destroy($id);
