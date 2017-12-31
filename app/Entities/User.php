@@ -13,14 +13,14 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 class User extends Model implements Transformable, AuthenticatableContract, AuthorizableContract
 {
     use TransformableTrait, Authenticatable, Authorizable;
-
+    
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'phone', 'active'
+        'name', 'email', 'phone', 'active', 'password'
     ];
 
     /**
@@ -29,7 +29,6 @@ class User extends Model implements Transformable, AuthenticatableContract, Auth
      * @var array
      */
     protected $hidden = [
-        'password'
+        'deleted_at', 'remember_token'
     ];
-
 }

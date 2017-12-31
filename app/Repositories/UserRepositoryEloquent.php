@@ -5,6 +5,7 @@ namespace App\Repositories;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Contracts\RepositoryInterface;
+use Prettus\Validator\Contracts\ValidatorInterface;
 use App\Entities\User;
 
 /**
@@ -13,6 +14,22 @@ use App\Entities\User;
  */
 class UserRepositoryEloquent extends BaseRepository implements RepositoryInterface
 {
+    /**
+     * Specify Validator Rules
+     * @var array
+     */
+    protected $rules = [
+        ValidatorInterface::RULE_CREATE => [
+            'name'     => 'required',
+            'email'    => 'required',
+            'password' => 'required',
+            'active'   => 'required'
+        ],
+        ValidatorInterface::RULE_UPDATE => [
+            'name' => 'required'
+        ]
+    ];
+
     /**
      * Specify Model class name
      *

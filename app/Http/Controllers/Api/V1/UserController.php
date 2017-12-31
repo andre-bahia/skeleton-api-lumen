@@ -18,7 +18,22 @@ class UserController extends BaseController
 
     public function index(Request $request)
     {
-        return response()->json($this->service->getAll());
+        return $this->service->all();
+    }
+
+    public function store(Request $request)
+    {
+        return $this->service->store($request->all());
+    }
+
+    public function destroy(int $id)
+    {
+        return $this->service->destroy($id);
+    }
+
+    public function findById(int $id)
+    {
+        return $this->service->findById($id);
     }
 
 }
