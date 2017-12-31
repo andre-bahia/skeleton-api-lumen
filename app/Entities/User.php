@@ -14,16 +14,13 @@ class User extends Model implements Transformable, AuthenticatableContract, Auth
 {
     use TransformableTrait, Authenticatable, Authorizable;
 
-    protected $table = 'usuario';
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email'
-    
+        'name', 'email', 'phone', 'active'
     ];
 
     /**

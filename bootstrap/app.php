@@ -87,7 +87,7 @@ $app->singleton(
 $app->register(Prettus\Repository\Providers\LumenRepositoryServiceProvider::class);
 
 // Oci8 oracle
-$app->register(Yajra\Oci8\Oci8ServiceProvider::class);
+// $app->register(Yajra\Oci8\Oci8ServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -103,7 +103,7 @@ $app->register(Yajra\Oci8\Oci8ServiceProvider::class);
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function ($router) {
-    require __DIR__.'/../routes/web.php';
+    require __DIR__.'/../routes/api.php';
 });
 
 return $app;
