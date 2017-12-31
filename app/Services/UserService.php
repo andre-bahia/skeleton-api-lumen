@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Dingo\Api\Exception\StoreResourceFailedException;
 use Prettus\Validator\Exceptions\ValidatorException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class UserService extends Service
 {
@@ -64,7 +65,7 @@ class UserService extends Service
         try {
             $data = $this->repository->find($id);
             return $this->success($data);
-        } catch (QueryException $e) {
+        } catch (ModelNotFoundException $e) {
             return $this->response->errorNotFound('User not found');    
         }
     }
