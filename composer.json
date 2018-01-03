@@ -10,7 +10,8 @@
         "vlucas/phpdotenv": "~2.2",
         "prettus/l5-repository": "^2.6",
         "laravelista/lumen-vendor-publish": "^2.1",
-        "dingo/api": "2.0.0-alpha1"
+        "dingo/api": "2.0.0-alpha1",
+        "tymon/jwt-auth": "1.0.0-rc.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
