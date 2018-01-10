@@ -3,6 +3,7 @@
 namespace App\Entities;
 
 use Illuminate\Auth\Authenticatable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
 use Prettus\Repository\Contracts\Transformable;
@@ -10,7 +11,7 @@ use Prettus\Repository\Traits\TransformableTrait;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class User extends Model implements Transformable, AuthenticatableContract, AuthorizableContract
+class User extends Model implements Transformable, AuthenticatableContract, AuthorizableContract, JWTSubject
 {
     use TransformableTrait, Authenticatable, Authorizable;
     
@@ -31,4 +32,16 @@ class User extends Model implements Transformable, AuthenticatableContract, Auth
     protected $hidden = [
         'password', 'deleted_at', 'remember_token'
     ];
+
+    // jwt need to implement the method
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    // jwt need to implement the method
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 }

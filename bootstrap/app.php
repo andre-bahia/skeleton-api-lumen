@@ -33,6 +33,10 @@ $app->withFacades(true, [
     Tymon\JWTAuth\Facades\JWTFactory::class => 'JWTFactory'
 ]);
 
+//config
+// jwt
+$app->configure('jwt');
+
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -99,6 +103,15 @@ $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
 
 //JWT
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
+
+app('Dingo\Api\Auth\Auth')->extend('jwt', function ($app) {
+    return new Dingo\Api\Auth\Provider\JWT($app['Tymon\JWTAuth\JWTAuth']);
+});
+
+// Injecting auth
+$app->singleton(Illuminate\Auth\AuthManager::class, function ($app) {
+    return $app->make('auth');
+});
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
