@@ -29,7 +29,7 @@ $api->version('v1', ['namespace' => 'App\Http\Controllers\Api\V1'], function ($a
          ]);
     });
     
-    $api->group(['prefix' => 'v1'], function ($api) {
+    $api->group(['prefix' => 'v1', 'middleware' => 'api.auth'], function ($api) {
         $api->group(['prefix' => 'users'], function ($api) {
 
             $api->get('/', 
