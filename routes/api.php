@@ -14,6 +14,21 @@
 $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', ['namespace' => 'App\Http\Controllers\Api\V1'], function ($api) {
+
+    $api->group(['prefix' => 'auth'], function($api) {
+        $api->post('/token', 
+            [
+                'as'   => 'auth.createToken',
+                'uses' => 'AuthController@createToken'
+        ]);
+
+         $api->put('/refresh-token',
+              [
+                 'as'   => 'auth.refreshToken',
+                 'uses' => 'AuthController@refreshToken'
+         ]);
+    });
+    
     $api->group(['prefix' => 'v1'], function ($api) {
         $api->group(['prefix' => 'users'], function ($api) {
 
