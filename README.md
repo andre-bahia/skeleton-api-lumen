@@ -1,6 +1,6 @@
 # Skeleton lumen api
 
-###### This is a skeleton using lumen 5.5 micro framework of laravel
+This is a skeleton using lumen 5.5 micro framework of laravel
 
 ## Used packages
 
