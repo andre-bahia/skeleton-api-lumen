@@ -6,7 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=7.0",
-        "laravel/lumen-framework": "5.5.*",
+        "laravel/lumen-framework": "^6.0",
         "vlucas/phpdotenv": "~2.2",
         "prettus/l5-repository": "^2.6",
         "laravelista/lumen-vendor-publish": "^2.1",
